@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>首页</title>
+    <link rel="icon" href="/static/imgs/title.png" type="image/x-icon"> 
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div style="margin-top: 20px;" class="container">
+        <div  class="row clearfix">
+            <div  class="col-md-12 column">
+                <ul  class="nav nav-pills">
+                    <li class="active">
+                         <a href="/index/home/">首页</a>
+                    </li>
+                    <li>
+                         <a href="/testcase/list/">我的测试用例</a>
+                    </li>
+                    <li class="">
+                         <a href="/report/list/">我的测试报告</a>
+                    </li>
+                    <li class="">
+                        <a href="/user/password/">修改密码</a>
+                    </li>
+                    <li class="">
+                        <a href="/management/user/">后台管理</a>
+                    </li>
+                    <li style="float: right;" class="">
+                        <div>
+                            <a id="modal-207276" href="#modal-container-207276" style="margin-right: 15px;font-size: medium;" data-toggle="modal"" >当前用户: {% if dic1.current_user %}{{ dic1.current_user }}{% endif %}</a>
+                            <a class="btn btn-default" href="/user/logout/">退出</a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="page-header">
+                    <h1>
+                        接口测试平台<small><span>基于Python的requests和unittest实现接口测试脚本的编写</span></small>
+                    </h1>
+                </div>
+                <!--用户个人信息的模态框-->
+                <div class="modal fade" id="modal-container-207276" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                                <h4 class="modal-title" id="myModalLabel">
+                                    用户个人信息
+                                </h4>
+                            </div>
+                        </div> 
+                    </div>
+                </div> 
+                <div class="carousel slide" id="carousel-88070">
+                    <ol class="carousel-indicators">
+                        <li data-slide-to="0" data-target="#carousel-88070">
+                        </li>
+                        <li data-slide-to="1" data-target="#carousel-88070">
+                        </li>
+                        <li data-slide-to="2" data-target="#carousel-88070" class="active">
+                        </li>
+                    </ol>
+                    <div class="carousel-inner" data-ride="carousel" >
+                        <div class="item">
+                            <img alt="" src="/static/imgs/default.jpg" />
+                            <div class="carousel-caption">
+                                <p>
+                                    接口自动化测试平台
+                                </p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img alt="" src="/static/imgs/default2.jpg" />
+                            <div class="carousel-caption">
+                                <p>
+                                    接口自动化测试平台
+                                </p>
+                            </div>
+                        </div>
+                        <div class="item active">
+                            <img alt="" src="/static/imgs/default1.jpg" />
+                            <div class="carousel-caption">
+                                <p>
+                                    接口自动化测试平台
+                                </p>
+                            </div>
+                        </div>
+                    </div> <a class="left carousel-control" href="#carousel-88070" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-88070" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                </div>
+                <div style="margin-top: 20px;" class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            软件简介
+                        </h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                <h3>
+                                    1.testcase管理功能
+                                </h3>
+                                <p>
+                                    (1) 支持在本地编写python接口测试脚本上传<br>
+                                    (2) 批量执行testcase,单个执行testcase<br>
+                                    (3) 定时跑脚本并输出结果
+                                </p>
+                                <p>
+                                     <a class="btn btn-primary" href="/my_plant">用户界面</a> 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                <h3>
+                                    2.测试报告功能
+                                </h3>
+                                <p>
+                                    (1) 每次执行case后均会输出测试报告<br>
+                                    (2) 支持查看测试报告和邮件发送测试报告<br>
+                                    (3) 支持邮件发送执行失败时的告警信息
+                                </p>
+                                <p>
+                                     <a class="btn btn-primary" href="/my_friends">朋友圈</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                <h3>
+                                    3.后台管理功能
+                                </h3>
+                                <p>
+                                    (1) 可以对所有用户进行管理<br>
+                                    (2) 可以对所有用户名下的case进行管理<br>
+                                    (3) 可以对所有用户名下的测试报告进行管理
+                                </p>
+                                <p>
+                                     <a class="btn btn-primary" href="/management/permissionTable">管理界面</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 20px;" class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            操作教程
+                        </h3>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-md-12 column">
+                        <img alt="" width="1200px" height="" src="/static/imgs/index_1.png" />
+                    </div>
+                </div>
+                <div style="margin-top: 20px;" class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            项目地址
+                        </h3>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-md-12 column">
+                        <p>
+                            <div>
+                                Github项目地址:<a href="https://github.com/xiaowang012/test_platform.git">点击进入</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

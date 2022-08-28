@@ -19,4 +19,5 @@ from user_app.views import host
 urlpatterns = [
     path("", host),
     path("user/",include('user_app.urls')),
+    path("index/",include('index_app.urls')),
 ]

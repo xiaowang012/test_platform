@@ -1,1 +1,1 @@
-# Django + selenium + mysql +redis 实现简单的UI自动化测试平台
+# Django + mysql +redis 实现的接口自动化测试平台

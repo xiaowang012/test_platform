@@ -31,7 +31,7 @@ def login(request):
             else:
                 request.session["is_login"] = True
                 auth.login(request, login_user_obj)
-                return redirect('/index/')
+                return redirect('/index/home/')
         else:
             return render(request, "user/login.html", {"form": form})
 
@@ -97,7 +97,7 @@ def register(request):
 # @permission_check
 def logout(request):
     auth.logout(request)
-    return redirect('user/login/')
+    return redirect('/user/login/')
 
 
 # 用户修改密码

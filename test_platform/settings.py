@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'user_app',
     'management_app',
     'report_app',
-    'testcase_app'
+    'testcase_app',
+    'index_app'
 ]
 
 MIDDLEWARE = [
