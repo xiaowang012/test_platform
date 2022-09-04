@@ -3,6 +3,7 @@ from django.contrib import auth
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render, HttpResponse
 from . import forms
+import os
 
 
 # 判断是否处于登录状态，登录状态跳转首页，否则跳转登录页
@@ -62,6 +63,10 @@ def register(request):
                     else:
                         # 返回对应的注册成功提示信息到页面
                         message = ' 注册: ' + str(username) + ' SUCCESS!'
+                        # 创建对应的测试代码目录./TestCodeBase/testcase_username/main.py
+                        testcase_path = os.getcwd()+ os.sep+'TestCodeBase'+os.sep + 'testcase_' + str(username)
+
+                        os.mkdir(testcase_path)
                         data = {'frame_type': 'alert alert-success alert-dismissable',
                                 'title': 'SUCCESS ',
                                 'message': message}
