@@ -20,4 +20,5 @@ urlpatterns = [
     path("", host),
     path("user/",include('user_app.urls')),
     path("index/",include('index_app.urls')),
+    path("testcase/",include('testcase_app.urls')),
 ]
