@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>我的测试用例</title>
-    <link rel="icon" href="/static/imgs/title.png" type="image/x-icon"> 
+    <link rel="icon" href="/static/imgs/test.png" type="image/x-icon"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
 	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -29,21 +29,20 @@
         <div  class="row clearfix">
             <div  class="col-md-12 column">
                 <ul  class="nav nav-pills">
-                    <li class="active">
-                         <a href="/my_testcase/">测试用例</a>
+                    <li class="">
+                        <a href="/index/home/">首页</a>
+                    </li>
+                    <li class="active" >
+                        <a href="/testcase/list?page_number=1">我的测试用例</a>
                     </li>
                     <li class="">
-                         <a href="/my_testreport/">测试报告</a>
+                        <a href="/report/list/">我的测试报告</a>
                     </li>
                     <li class="">
-                        <a href="/register/">用户注册</a>
-                    </li>
-                    
-                    <li class="">
-                        <a href="/update_password/">修改密码</a>
+                       <a href="/user/password/">修改密码</a>
                     </li>
                     <li class="">
-                        <a href="/management/">后台管理</a>
+                       <a href="/management/user/">后台管理</a>
                     </li>
                     <li style="float: right;" class="">
                         <div>
@@ -54,52 +53,13 @@
                 </ul>
                 <div class="page-header">
                     <h1>
-                        UI自动化测试软件<small><span></span></small>
+                        接口自动化测试平台<small><span></span></small>
                     </h1>
                 </div>
                 <!--用户个人信息的模态框-->
-                <div class="modal fade" id="modal-container-207276" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-                                <h4 class="modal-title" id="myModalLabel">
-                                    用户个人信息
-                                </h4>
-                            </div>
-                            <div class="modal-body">
-                                <div class="panel panel-primary">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title">
-                                            用户名: {{ dic1.current_user }}
-                                        </h3>
-                                    </div>
-                                    <div class="panel-body">
-                                        姓名: {{ dic1.chinese_name }}
-                                    </div>
-                                    <div class="panel-footer">
-                                        性别: {{ dic1.sex }}
-                                    </div>
-                                    <div class="panel-body">
-                                        生日: {{ dic1.birthday }}
-                                    </div>
-                                    <div class="panel-footer">
-                                        权限: {{ dic1.permission }}
-                                    </div>
-                                    <div class="panel-body">
-                                        邮箱: {{ dic1.email }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div> 
-                    </div>
-                </div> 
                 <div  class="container">
                     <div class="row clearfix">
                         <div style="padding-left:0" class="col-md-12 column">
-                            <h3 class="text-center">
-                                测试用例表
-                            </h3>
                             <!--消息提醒-->
                             <div class="container">
                                 <div class="row clearfix">
@@ -170,27 +130,30 @@
                             </nav>
                             <table style="margin-top: 20px;" class="table table-bordered">
                                 <thead>
-                                    <tr>
+                                    <tr class="info">
                                         <th>
-                                            用例编号
+                                            编号
                                         </th>
                                         <th>
-                                            用例类型
+                                            用例名称
                                         </th>
                                         <th>
-                                            页面URL
+                                            所属项目
                                         </th>
                                         <th>
-                                            定位元素
+                                            描述信息
                                         </th>
                                         <th>
-                                            输入数据
+                                            状态
                                         </th>
                                         <th>
-                                            提交动作
+                                            测试代码地址
                                         </th>
                                         <th>
-                                            断言数据
+                                            创建用户
+                                        </th>
+                                        <th>
+                                            创建时间
                                         </th>
                                         <th>
                                             <a role="button" id="modal-207299" href="#modal-container-207299" style="font-size: smaller;" class="btn btn-primary" data-toggle="modal" >执行全部</a><a role="button" id="modal-207300" href="#modal-container-207300" class="btn btn-default" style="font-size: smaller;margin-left: 17px;" data-toggle="modal" >导入</a>
@@ -198,169 +161,37 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="success">
-                                        <td>
-                                            1
-                                        </td>
-                                        <td>
-                                            输入框
-                                        </td>
-                                        <td>
-                                            https://github.com
-                                        </td>
-                                        <td>
-                                            id#password
-                                        </td>
-                                        <td>
-                                            xiaowang 
-                                        </td>
-                                        <td>
-                                            click
-                                        </td>
-                                        <td>
-                                            None
-                                        </td>
-                                        <td>
-                                            <a id="modal-207301" onclick="parameter_id('{{ username }}','{{ chinese_name }}','{{ sex }}','{{ birthday }}','{{ email}}','{{ group_id }}')" href="#modal-container-207301" role="button" style="font-size: x-small;" class="btn btn-default" data-toggle="modal">执行</a><button class="btn btn-default btn-primary" style="margin-left: 15px;font-size: x-small;" onclick="delete_confirm('/management/userTable/delete?username={{ item.username }}')">删除</button>
-                                        </td>
-                                    </tr>  
-                                </tbody>
-                                <tbody>
-                                    <tr class="error">
-                                        <td>
-                                            2
-                                        </td>
-                                        <td>
-                                            输入框
-                                        </td>
-                                        <td>
-                                            https://github.com
-                                        </td>
-                                        <td>
-                                            id#password
-                                        </td>
-                                        <td>
-                                            xiaowang 
-                                        </td>
-                                        <td>
-                                            click
-                                        </td>
-                                        <td>
-                                            None
-                                        </td>
-                                        <td>
-                                            <a id="modal-207301" onclick="parameter_id('{{ username }}','{{ chinese_name }}','{{ sex }}','{{ birthday }}','{{ email}}','{{ group_id }}')" href="#modal-container-207301" role="button" style="font-size: x-small;" class="btn btn-default" data-toggle="modal">执行</a><button class="btn btn-default btn-primary" style="margin-left: 15px;font-size: x-small;" onclick="delete_confirm('/management/userTable/delete?username={{ item.username }}')">删除</button>
-                                        </td>
-                                    </tr>  
-                                </tbody>
-                                <tbody>
-                                    <tr class="">
-                                        <td>
-                                            3
-                                        </td>
-                                        <td>
-                                            输入框
-                                        </td>
-                                        <td>
-                                            https://github.com
-                                        </td>
-                                        <td>
-                                            id#password
-                                        </td>
-                                        <td>
-                                            xiaowang 
-                                        </td>
-                                        <td>
-                                            click
-                                        </td>
-                                        <td>
-                                            None
-                                        </td>
-                                        <td>
-                                            <a id="modal-207301" onclick="parameter_id('{{ username }}','{{ chinese_name }}','{{ sex }}','{{ birthday }}','{{ email}}','{{ group_id }}')" href="#modal-container-207301" role="button" style="font-size: x-small;" class="btn btn-default" data-toggle="modal">执行</a><button class="btn btn-default btn-primary" style="margin-left: 15px;font-size: x-small;" onclick="delete_confirm('/management/userTable/delete?username={{ item.username }}')">删除</button>
-                                        </td>
-                                    </tr>  
-                                </tbody>
-                                <tbody>
-                                    <tr class="success">
-                                        <td>
-                                            4
-                                        </td>
-                                        <td>
-                                            输入框
-                                        </td>
-                                        <td>
-                                            https://github.com
-                                        </td>
-                                        <td>
-                                            id#password
-                                        </td>
-                                        <td>
-                                            xiaowang 
-                                        </td>
-                                        <td>
-                                            click
-                                        </td>
-                                        <td>
-                                            None
-                                        </td>
-                                        <td>
-                                            <a id="modal-207301" onclick="parameter_id('{{ username }}','{{ chinese_name }}','{{ sex }}','{{ birthday }}','{{ email}}','{{ group_id }}')" href="#modal-container-207301" role="button" style="font-size: x-small;" class="btn btn-default" data-toggle="modal">执行</a><button class="btn btn-default btn-primary" style="margin-left: 15px;font-size: x-small;" onclick="delete_confirm('/management/userTable/delete?username={{ item.username }}')">删除</button>
-                                        </td>
-                                    </tr>  
-                                </tbody>
-                                <tbody>
-                                    <tr class="success">
-                                        <td>
-                                            5
-                                        </td>
-                                        <td>
-                                            输入框
-                                        </td>
-                                        <td>
-                                            https://github.com
-                                        </td>
-                                        <td>
-                                            id#password
-                                        </td>
-                                        <td>
-                                            xiaowang 
-                                        </td>
-                                        <td>
-                                            click
-                                        </td>
-                                        <td>
-                                            None
-                                        </td>
-                                        <td>
-                                            <a id="modal-207301" onclick="parameter_id('{{ username }}','{{ chinese_name }}','{{ sex }}','{{ birthday }}','{{ email}}','{{ group_id }}')" href="#modal-container-207301" role="button" style="font-size: x-small;" class="btn btn-default" data-toggle="modal">执行</a><button class="btn btn-default btn-primary" style="margin-left: 15px;font-size: x-small;" onclick="delete_confirm('/management/userTable/delete?username={{ item.username }}')">删除</button>
-                                        </td>
-                                    </tr>  
-                                </tbody>
-
-                                <!-- <tbody>
-                                    {% for item in list1 %}
+                                    {% for item in data %}
                                         <tr class="{{ item.style }}">
                                             <td>
-                                                {{ item.username }}
+                                                {{ item.id }}
                                             </td>
                                             <td>
-                                                {{ item.chinese_name }}
+                                                {{ item.case_name }}
+                                            </td>
+                                            <th>
+                                                <h5>富士康项目</h5>
+                                            </th>
+                                            <td>
+                                                <textarea cols="20" style="background: rgba(255,255,255,0.5);" rows="2">{{ item.case_description }}</textarea>
                                             </td>
                                             <td>
-                                                {{ item.sex }}
+                                                {% if item.case_status == 1%}
+                                                    <h5>正常</h5> 
+                                                {% elif item.case_status == 0%}
+                                                    <h5>失效</h5>  
+                                                {% else %}
+                                                    <h5>None</h5>  
+                                                {% endif %}
                                             </td>
                                             <td>
-                                                {{ item.birthday }} 
+                                                {{ item.code_resource_address }} 
                                             </td>
                                             <td>
-                                                {{ item.email }} 
+                                                {{ item.create_user }} 
                                             </td>
                                             <td>
-                                                {{ item.group_id }} 
-                                            </td>
-                                            <td>
-                                                {{ item.add_time }} 
+                                                {{ item.create_time }} 
                                             </td>
                                             <td>
                                                 <a id="modal-207301" onclick="parameter_id('{{ username }}','{{ chinese_name }}','{{ sex }}','{{ birthday }}','{{ email}}','{{ group_id }}')" href="#modal-container-207301" role="button" style="font-size: x-small;" class="btn btn-default" data-toggle="modal">修改</a><button class="btn btn-default btn-primary" style="margin-left: 15px;font-size: x-small;" onclick="delete_confirm('/management/userTable/delete?username={{ item.username }}')">删除</button>
@@ -368,7 +199,7 @@
                                         </tr>  
                                     {% endfor %}
                                     
-                                </tbody> -->
+                                </tbody>
                             </table>
                             <!-- 添加用户模态框 -->
                             <div class="modal fade" id="modal-container-207299" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -492,39 +323,39 @@
                             </div> 
                             <ul style="float: right;" class="pagination">
                                 <li class="{{ dic1.active_Prev }}">
-                                    {% if dic1.page_number <= 2 %}
-                                        <a href="/management/userTable/page?page_number=1">Prev</a>
+                                    {% if dic1.current_page <= 2 %}
+                                        <a href="/testcase/list?page_number=1">上一页</a>
                                     {% else %}
-                                        <a href="/management/userTable/page?page_number={{ dic1.page_number|add:-1 }}">Prev</a>
+                                        <a href="/testcase/list?page_number={{ dic1.current_page|add:-1 }}">Prev</a>
                                     {% endif %}
                                    </li>
                                 <li class="{{ dic1.active1 }}">
-                                     <a href="/management/userTable/page?page_number=1">1</a>
+                                     <a href="/testcase/list?page_number=1">1</a>
                                 </li>
                                 <li class="{{ dic1.active2 }}">
-                                     <a href="/management/userTable/page?page_number=2">2</a>
+                                     <a href="/testcase/list?page_number=2">2</a>
                                 </li>
                                 <li class="{{ dic1.active3 }}">
-                                     <a href="/management/userTable/page?page_number=3">3</a>
+                                     <a href="/testcase/list?page_number=3">3</a>
                                 </li>
                                 <li class="{{ dic1.active4 }}">
-                                     <a href="/management/userTable/page?page_number=4">4</a>
+                                     <a href="/testcase/list?page_number=4">4</a>
                                 </li>
                                 <li class="{{ dic1.active5 }}">
-                                     <a href="/management/userTable/page?page_number=5">5</a>
+                                     <a href="/testcase/list?page_number=5">5</a>
                                 </li>
                                 <li class="{{ dic1.active_next }}">
-                                     <a href="/management/userTable/page?page_number={{ dic1.page_number|add:1 }}">Next</a>
+                                     <a href="/testcase/list?page_number={{ dic1.current_page|add:1 }}">下一页</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 
-                <div style="margin-top: 20px;" class="panel panel-success">
+                <div style="margin-top: 20px;" class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class="panel-title">
-                            联系方式
+                            项目地址
                         </h3>
                     </div>
                 </div>
